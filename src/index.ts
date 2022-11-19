@@ -1,15 +1,18 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import * as dotenv from 'dotenv';
 
 import { router } from './router';
 
+dotenv.config();
+
 mongoose
-  .connect('mongodb://localhost:27017/mars-rover')
+  .connect(process.env.MONGO_URL ?? '')
   .then(() => {
     const app = express();
 
-    const port = 3001;
+    const port = process.env.PORT;
 
     app.use(cors());
     app.use(express.json());
