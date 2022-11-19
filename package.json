@@ -28,6 +28,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon src/index.ts",
+    "start": "npm run build && node dist/src/index.js",
     "test": "jest --detectOpenHandles"
   }
 }
